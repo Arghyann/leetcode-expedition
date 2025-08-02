@@ -14,9 +14,6 @@ class Solution:
             target = total_count // 2
             diff = count1.get(fruit, 0) - target
             
-            # if diff > 0, b1 has a surplus. if diff < 0, b2 has a surplus.
-            # abs(diff) is the number of items of this fruit type in the wrong basket.
-            # since each misplaced fruit corresponds to another, we add half.
             for _ in range(abs(diff)):
                 fruits_to_swap.append(fruit)
 
@@ -26,7 +23,7 @@ class Solution:
         total_cost = 0
         swaps_to_make = len(fruits_to_swap) // 2
         for i in range(swaps_to_make):
-            # Cost is min(direct swap cost, helper swap cost)
+
             total_cost += min(fruits_to_swap[i], 2 * min_val)
             
         return total_cost
