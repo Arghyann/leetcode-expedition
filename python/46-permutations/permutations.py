@@ -1,13 +1,17 @@
-class Solution:
-    def permute(self, nums: List[int]) -> List[List[int]]:
-        if len(nums)==0:
-            return[[]]
-        permutS=self.permute(nums[1:])
-        result=[]
-        for p in permutS:
-            for i in range(len(p)+1):
-                p_copy=p.copy()
-                p_copy.insert(i,nums[0])
-                result.append(p_copy)
-        return result
+class Solution(object):
+    def permute(self, nums):
+        sol,ans=[],[]
 
+        def backtrack():
+            if len(sol)==len(nums):
+                ans.append(sol[:])
+                
+
+            for k in nums:
+                if k not in sol:
+                    sol.append(k)
+                    backtrack()
+                    sol.pop()
+                
+        backtrack()
+        return ans
