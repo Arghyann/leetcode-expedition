@@ -7,10 +7,8 @@ class Solution(object):
                 if j>=i:
                     isPlaced=True
                     baskets.remove(j)
-
                     break
             if not isPlaced:
-
                 count+=1
         return count
 
