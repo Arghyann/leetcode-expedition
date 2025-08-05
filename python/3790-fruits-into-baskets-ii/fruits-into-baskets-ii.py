@@ -6,7 +6,6 @@ class Solution(object):
             for j in baskets:
                 if j>=i:
                     isPlaced=True
-                    print("isPlaced changed for:",)
                     baskets.remove(j)
 
                     break
