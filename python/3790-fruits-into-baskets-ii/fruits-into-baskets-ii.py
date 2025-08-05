@@ -1,21 +1,18 @@
 class Solution(object):
     def numOfUnplacedFruits(self, fruits, baskets):
         count=0
-        for i in range(len(fruits)):
-            
+        for i in fruits:
             isPlaced=False
-            for j in range(len(baskets)):
-                if baskets[j]>=fruits[i]:
-                    
+            for j in baskets:
+                if j>=i:
                     isPlaced=True
-                   
-
-                    baskets.pop(j)
-                    print(j)
-                    print(baskets)
+                    #print("isPlaced changed for:",)
+                    baskets.remove(j)
+                    #print(j)
+                    #print(baskets)
                     break
             if not isPlaced:
-                
+                #print("count increased for: ",i )
                 count+=1
         return count
 
