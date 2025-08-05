@@ -6,13 +6,13 @@ class Solution(object):
             for j in baskets:
                 if j>=i:
                     isPlaced=True
-                    #print("isPlaced changed for:",)
+                    print("isPlaced changed for:",)
                     baskets.remove(j)
-                    #print(j)
-                    #print(baskets)
+                    print(j)
+                    print(baskets)
                     break
             if not isPlaced:
-                #print("count increased for: ",i )
+                print("count increased for: ",i )
                 count+=1
         return count
 
