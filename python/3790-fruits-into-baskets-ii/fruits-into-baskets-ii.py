@@ -8,11 +8,10 @@ class Solution(object):
                     isPlaced=True
                     print("isPlaced changed for:",)
                     baskets.remove(j)
-                    print(j)
-                    print(baskets)
+
                     break
             if not isPlaced:
-                print("count increased for: ",i )
+
                 count+=1
         return count
 
