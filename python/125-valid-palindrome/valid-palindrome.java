@@ -4,8 +4,6 @@ class Solution {
         int left=0;
         int right=s.length()-1;
         while (right>left){
-            System.out.println(s.charAt(left));
-            System.out.println(s.charAt(right));
             if(s.charAt(left)!=s.charAt(right)){
                 
                 return false;
