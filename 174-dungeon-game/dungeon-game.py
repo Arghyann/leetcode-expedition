@@ -1,38 +1,23 @@
 class Solution:
     def calculateMinimumHP(self, dungeon: List[List[int]]) -> int:
-        def pri(matri):
-            print("Number")
-            for i in matri:
-                print(i)
-            print("")
-
-        m, n = len(dungeon) - 1, len(dungeon[0]) - 1
-
-        # <-- Missing colon here
-        if dungeon == [[1, -2, 3], [2, -2, -2]]:
-            return 2
-
-        mat = [[float("-inf")] * (n + 2) for _ in range(m + 2)]
-        mat[m][n] = dungeon[m][n]
-
-        for i in range(m, -1, -1):
-            for j in range(n, -1, -1):
-                if i == m and j == n:
-                    if mat[i][j] > 0:
-                        mat[i][j] = 0
-                    continue
-
-                maxhere = max(mat[i + 1][j], mat[i][j + 1]) + dungeon[i][j]
-
-                if maxhere > 1:
-                    maxhere = 0
-
-                mat[i][j] = maxhere
-
-        pri(dungeon)
-        pri(mat)
-
-        if mat[0][0] > 1:
-            return 1
-
-        return -(mat[0][0] - 1) if -(mat[0][0] - 1) != 0 else 1
+        # Get dimensions of the dungeon
+        rows, cols = len(dungeon), len(dungeon[0])
+      
+        # Initialize DP table with infinity values
+        # Extra row and column for boundary conditions
+        dp = [[float('inf')] * (cols + 1) for _ in range(rows + 1)]
+      
+        # Set base cases: minimum health needed just outside the princess room is 1
+        dp[rows][cols - 1] = dp[rows - 1][cols] = 1
+      
+        # Fill DP table from bottom-right to top-left
+        for row in range(rows - 1, -1, -1):
+            for col in range(cols - 1, -1, -1):
+                # Minimum health needed at current cell is:
+                # - At least 1 (knight must survive)
+                # - Minimum health from next cell minus current cell's value
+                min_health_on_exit = min(dp[row + 1][col], dp[row][col + 1])
+                dp[row][col] = max(1, min_health_on_exit - dungeon[row][col])
+      
+        # Return minimum initial health needed at starting position
+        return dp[0][0]
