@@ -4,8 +4,6 @@ class Solution(object):
         curr=[]
         
         def backtrack(i):
-            print(i)
-            print(curr)
             if(i==len(nums)):
                 sol.append(curr[:])
                 return 
