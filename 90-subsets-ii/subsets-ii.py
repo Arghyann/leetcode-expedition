@@ -3,7 +3,6 @@ class Solution(object):
         sol=[]
         curr=[]
         nums.sort()
-
         def backtrack(i):
             if i == len(nums):
                 sol.append(curr[:])
