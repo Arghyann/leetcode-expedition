@@ -1,7 +1,6 @@
 class Solution {
     private HashSet<String> set = new HashSet<>();
-    public int numIslands(char[][] grid) {
-       
+    public int numIslands(char[][] grid) {       
        int counter=0;
        for(int i =0;i<grid.length;i++){
         for(int j = 0;j<grid[0].length;j++){
@@ -22,8 +21,7 @@ class Solution {
         String s =""+i+","+j;
         if(grid[i][j]=='0' || set.contains(s)){
             return;
-        }
-        
+        }        
         set.add(s);
         for(int ni=-1;ni<=1;ni++){
             for(int nj = -1;nj<=1;nj++){
