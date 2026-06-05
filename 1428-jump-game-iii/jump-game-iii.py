@@ -1,25 +1,15 @@
 class Solution(object):
     def canReach(self, arr, start):
-        # Create an empty set to store visited indices
-        visited = set()
-
-        def dfs(i):
-            # Out of bounds
-            if i < 0 or i >= len(arr):
+        memo={}
+        def dfs(ind):
+            if(ind<0 or ind>=len(arr)):
                 return False
-
-            # Already visited
-            if i in visited:
-                return False
-
-            # Found a zero
-            if arr[i] == 0:
+            if(arr[ind]==0):
                 return True
-
-            # Mark as visited
-            visited.add(i)
-
-            # Try both possible jumps
-            return dfs(i + arr[i]) or dfs(i - arr[i])
-
+            if(ind in memo):
+                return memo[ind]
+            memo[ind]=False
+            res = dfs(ind+arr[ind]) or dfs(ind-arr[ind])
+            memo[ind]=res
+            return res
         return dfs(start)
