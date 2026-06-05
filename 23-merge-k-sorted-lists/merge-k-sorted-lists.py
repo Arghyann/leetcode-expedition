@@ -19,8 +19,10 @@ class Solution:
             for i in range(len(lists)):                
                 if(lists[i] is not None and lists[i].val<mint[0]):
                     mint=[lists[i].val,i]
-            tempnode=ListNode(mint[0])
-            curr.next=tempnode
-            curr=tempnode
+            curr.next=lists[mint[1]]
             lists[mint[1]]=lists[mint[1]].next
+            curr=curr.next
+            curr.next=None
+            curr.val=mint[0]
+            
         return l1.next
