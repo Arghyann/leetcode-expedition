@@ -1,14 +1,17 @@
 class Solution {
     public boolean isPalindrome(String s) {
-        s=s.toLowerCase().replaceAll("[^a-zA-Z0-9]", "");
+        String temp=s.toLowerCase();
+        temp=temp.replaceAll("[^a-z0-9]","");
+        temp=temp.replace(" ","");
+        System.out.println(temp);
         int left=0;
-        int right=s.length()-1;
-        while (right>left){
-            if(s.charAt(left)!=s.charAt(right)){                
-                return false;              
+        int right = temp.length()-1;
+        while(left<right){
+            if(temp.charAt(left)!=temp.charAt(right)){
+                return false;
             }
-            left+=1;
-            right-=1;
+            left++;
+            right--;
         }
         return true;
     }
