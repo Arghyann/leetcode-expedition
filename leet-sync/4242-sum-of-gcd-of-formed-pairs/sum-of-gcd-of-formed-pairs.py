@@ -5,7 +5,6 @@ class Solution(object):
             while b != 0:
                 a, b = b, a%b
             return a
-
         temp = []
         m=-1
         for i in range(len(nums)):
@@ -17,6 +16,4 @@ class Solution(object):
         sum = 0
         for i in range(len(temp) // 2):
             sum += gcd(temp[len(temp)-1-i],temp[i])
-            print(sum)
-
         return sum
