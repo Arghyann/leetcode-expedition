@@ -22,7 +22,7 @@ class Solution {
                 }
             }
 
-            if (freq[i] % 2 == 0 && freq[i]!=0) {
+            else {
                 for (int j = 1; j <= freq[i] / 2; j++) {
                     sb.append((char) (i + 'a'));
                 }
