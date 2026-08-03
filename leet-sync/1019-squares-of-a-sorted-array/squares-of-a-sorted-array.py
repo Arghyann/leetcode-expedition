@@ -11,7 +11,6 @@ class Solution:
                 ans[ansi]=sqrl
                 left+=1
             else:
-                print(ansi)
                 ans[ansi]=sqrr
                 right-=1
             ansi-=1
