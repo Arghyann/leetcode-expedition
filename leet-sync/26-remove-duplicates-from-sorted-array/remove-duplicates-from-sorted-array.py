@@ -1,10 +1,10 @@
-class Solution:
-    def removeDuplicates(self, nums: List[int]) -> int:
+class Solution(object):
+    def removeDuplicates(self, nums):
         write=0
-        replaced=float('inf')
+        curr=float('-inf')
         for i in range(len(nums)):
-            if nums[i]!=replaced:
+            if(curr!=nums[i]):
                 nums[write]=nums[i]
+                curr=nums[i]
                 write+=1
-                replaced=nums[i]
         return write
