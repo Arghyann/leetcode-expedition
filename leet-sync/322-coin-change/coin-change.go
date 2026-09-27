@@ -17,7 +17,6 @@ func coinChange(coins []int, amount int) int {
         }
     }
     dp[i]=mini
-
    }
    if dp[amount]!=amount+1{
     return dp[amount]
