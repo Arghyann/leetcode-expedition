@@ -7,8 +7,6 @@ class Solution(object):
             area = (right - left )*min(height[left],height[right])
             if area > ans :
                 ans = area
-            print(area)
-            print(ans)
             if height[left] < height[right]:
                 left += 1
             else:
